@@ -5,3 +5,15 @@
     margin-right: 10px;
     font-size: 33px;
 }
+
+table {
+    text-align: center;
+}
+
+table th {
+    font-size: 11px;
+}
+
+table td {
+    font-size: 11px;
+}

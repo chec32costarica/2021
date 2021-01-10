@@ -138,4 +138,3 @@ db.collection("peatonal").orderBy("ki", "asc").get().then((querySnapshot) => {
         `
     });
 });
-
