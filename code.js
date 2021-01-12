@@ -30,7 +30,9 @@ db.collection("expropiaciones").orderBy("KI", "asc").get().then((querySnapshot) 
         </div>
         <div class="card-body text-center">
             <h5 class="card-title">${doc.data().ExpCod}</h5>
-            <p class="card-text">${doc.data().ofi}</p>
+            <a href="${doc.data().plano}">
+                <p class="card-text">${doc.data().ofi}</p>
+            </a>
             <p class="card-text">${doc.data().KI} - ${doc.data().KF}</p>
         </div>
         </div>
