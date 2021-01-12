@@ -26,7 +26,7 @@ db.collection("expropiaciones").orderBy("KI", "asc").get().then((querySnapshot) 
         
         <div class="card mb-3">
         <div class="card-header bg-success fw-bolder text-white">
-            ${doc.data().status} ${doc.data().size}
+            ${doc.data().status}
         </div>
         <div class="card-body text-center">
             <h5 class="card-title">${doc.data().ExpCod}</h5>
