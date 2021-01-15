@@ -17,3 +17,7 @@ table th {
 table td {
     font-size: 11px;
 }
+
+#mapid { 
+    height: 180px; 
+}
