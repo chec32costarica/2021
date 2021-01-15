@@ -105,7 +105,7 @@ db.collection("psv").orderBy("ki", "asc").get().then((querySnapshot) => {
         
         <div class="card mb-3">
         <div class="card-header text-center bg-primary text-white fw-bolder">
-            ${doc.data().name}
+            <a href="${doc.data().url}" class="text-white">${doc.data().name}</a>
         </div>
         <div class="card-body p-1">
             <p class="card-text text-center">${doc.data().ki}</p>
