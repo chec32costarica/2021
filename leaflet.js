@@ -1,16 +1,20 @@
 const tilesProvider = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
-var mymap = L.map('mapid').setView([10.146, -83.578], 13);
-
-L.tileLayer(tilesProvider, {
-    maxZoom: 18,
-}).addTo(mymap);
-
-
 navigator.geolocation.getCurrentPosition(
     (pos) => {
         const { coords } = pos
+        var mymap = L.map('mapid').setView([coords.latitude, coords.longitude], 13);
+        L.tileLayer(tilesProvider, {
+            maxZoom: 18,
+        }).addTo(mymap);
         L.marker([coords.latitude, coords.longitude]).addTo(mymap)
+
+        document.getElementById("coordenadas").innerHTML+= 
+        `
+            <p>${coords.latitude}, ${coords.longitude}</p>
+
+        ` 
+
     },
     (err)=> {
 
@@ -20,4 +24,12 @@ navigator.geolocation.getCurrentPosition(
         timeout: 5000,
         maximumAge: 0
     }
+    
 )
+
+
+
+
+
+
+
