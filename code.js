@@ -156,12 +156,19 @@ const tilesProvider = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 navigator.geolocation.getCurrentPosition(
     (pos) => {
+        let actualPosition = L.icon({
+            iconUrl: './img/position.png',
+        
+            iconSize:     [20, 20], // size of the icon
+            iconAnchor:   [5, 5], // point of the icon which will correspond to marker's location
+            popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+        });
         const { coords } = pos
         var mymap = L.map('mapid').setView([coords.latitude, coords.longitude], 13);
         L.tileLayer(tilesProvider, {
             maxZoom: 18,
         }).addTo(mymap);
-        L.marker([coords.latitude, coords.longitude]).addTo(mymap);
+        L.marker([coords.latitude, coords.longitude],{icon: actualPosition}).bindPopup("<b>Ubicación Actual</b>"+"<br>"+coords.latitude + ", " + coords.longitude ).openPopup().addTo(mymap);
 
 
 
@@ -169,13 +176,21 @@ navigator.geolocation.getCurrentPosition(
             
             querySnapshot.forEach((doc) => {
                 //console.log(`${doc.id} => ${doc.data()}`);
+
+                let bridgeIcon = L.icon({
+                    iconUrl: './img/bridge.png',
+                
+                    iconSize:     [20, 20], // size of the icon
+                    iconAnchor:   [5, 5], // point of the icon which will correspond to marker's location
+                    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+                });
         
                 let latLong = doc.data().coords.split(",");
                 let puenteNombre = doc.data().name;
                 let kilometraje = doc.data().ki;
                 let latLog = doc.data().coords;
                 //console.log(latLong);
-                L.marker(latLong).bindPopup("<b>" + puenteNombre +"</b>" + "<br>" + kilometraje + "<br>" + latLog ).addTo(mymap);
+                L.marker(latLong, {icon: bridgeIcon}).bindPopup("<b>"+ puenteNombre +"</b>" + "<br>" + kilometraje + "<br>" + latLog ).addTo(mymap);
             });
         });
 
