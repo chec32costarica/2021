@@ -50,15 +50,19 @@ var bridges = document.getElementById("puentes-list")
 db.collection("Puentes").orderBy("ki", "asc").get().then((querySnapshot) => {
     bridges.innerHTML ='';
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+        //console.log(`${doc.id} => ${doc.data()}`);
+
+        let latLong = doc.data().coords.split(",");
+        console.log(latLong);
+
         bridges.innerHTML += `
         
         <div class="card mb-3">
         <div class="card-header text-center bg-primary text-white fw-bolder">
-            ${doc.data().name}
+            ${doc.data().name}  
         </div>
         <div class="card-body p-1">
-            <p class="card-text text-center">${doc.data().ki}</p>
+            <p class="card-text text-center">${doc.data().ki}<span class="coords">  ${latLong}</span></p>
         </div>
         </div>
 
@@ -140,3 +144,65 @@ db.collection("peatonal").orderBy("ki", "asc").get().then((querySnapshot) => {
         `
     });
 });
+
+
+// LEAFTLET SCRIPT
+
+const tilesProvider = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png";
+
+// Obtener Latitud y Longitud para mostrar en el mapa
+
+
+
+navigator.geolocation.getCurrentPosition(
+    (pos) => {
+        const { coords } = pos
+        var mymap = L.map('mapid').setView([coords.latitude, coords.longitude], 13);
+        L.tileLayer(tilesProvider, {
+            maxZoom: 18,
+        }).addTo(mymap);
+        L.marker([coords.latitude, coords.longitude]).addTo(mymap);
+
+
+
+        db.collection("Puentes").orderBy("ki", "asc").get().then((querySnapshot) => {
+            
+            querySnapshot.forEach((doc) => {
+                //console.log(`${doc.id} => ${doc.data()}`);
+        
+                let latLong = doc.data().coords.split(",");
+                let puenteNombre = doc.data().name;
+                let kilometraje = doc.data().ki;
+                let latLog = doc.data().coords;
+                //console.log(latLong);
+                L.marker(latLong).bindPopup("<b>" + puenteNombre +"</b>" + "<br>" + kilometraje + "<br>" + latLog ).addTo(mymap);
+            });
+        });
+
+
+
+
+
+        document.getElementById("coordenadas").innerHTML+= 
+        `
+            <p>${coords.latitude}, ${coords.longitude}</p>
+
+        ` 
+        
+
+    },
+    (err)=> {
+
+    },
+    {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    }
+    
+)
+
+// Obtener Latitud y Longitud para mostrar en el mapa
+
+
+
