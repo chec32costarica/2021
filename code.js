@@ -163,6 +163,7 @@ navigator.geolocation.getCurrentPosition(
             iconAnchor:   [5, 5], // point of the icon which will correspond to marker's location
             popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
         });
+
         const { coords } = pos
         var mymap = L.map('mapid').setView([coords.latitude, coords.longitude], 13);
         L.tileLayer(tilesProvider, {
@@ -194,6 +195,27 @@ navigator.geolocation.getCurrentPosition(
             });
         });
 
+        db.collection("kilometraje").orderBy("ki", "asc").get().then((querySnapshot) => {
+            
+            querySnapshot.forEach((doc) => {
+                //console.log(`${doc.id} => ${doc.data()}`);
+
+                let KIcon = L.icon({
+                    iconUrl: './img/K.png',
+                
+                    iconSize:     [25, 25], // size of the icon
+                    iconAnchor:   [5, 5], // point of the icon which will correspond to marker's location
+                    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+                });
+        
+                let latLong = doc.data().coords.split(",");
+                let estacionamiento = doc.data().ki;
+                let kilometraje = doc.data().coords;
+                //console.log(latLong);
+                L.marker(latLong, {icon: KIcon}).bindPopup("<b>"+"<h5>"+estacionamiento+"</h5>" +"</b>" + "<br>" + kilometraje + "<br>").addTo(mymap);
+            });
+        });
+
 
 
 
@@ -204,7 +226,7 @@ navigator.geolocation.getCurrentPosition(
 
         ` 
         
-
+   
     },
     (err)=> {
 
