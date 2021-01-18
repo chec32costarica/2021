@@ -42,6 +42,34 @@ db.collection("expropiaciones").orderBy("KI", "asc").get().then((querySnapshot) 
     });
 });
 
+//leer estadisticas
+
+var estadisticas = document.getElementById("estadisticas-expropiaciones")
+
+
+db.collection("oficios").orderBy("oficio", "asc").get().then((querySnapshot) => {
+    estadisticas.innerHTML ='';
+    querySnapshot.forEach((doc) => {
+        //console.log(`${doc.id} => ${doc.data()}`);
+        estadisticas.innerHTML += `
+        
+        <div class="card mb-3">
+        <div class="card-header bg-success fw-bolder text-white">
+            ${doc.data().oficio}
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">${doc.data().expedientes}</h5>
+            <a href="${doc.data().url}">
+                <p class="card-text">Ver Oficio en PDF</p>
+            </a>
+        </div>
+        </div>
+
+
+        `
+    });
+});
+
 //leer datos puentes
 
 var bridges = document.getElementById("puentes-list")
