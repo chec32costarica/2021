@@ -239,6 +239,29 @@ navigator.geolocation.getCurrentPosition(
             });
         });
 
+        db.collection("psv").orderBy("ki", "asc").get().then((querySnapshot) => {
+            
+            querySnapshot.forEach((doc) => {
+                //console.log(`${doc.id} => ${doc.data()}`);
+
+                let psvIcon = L.icon({
+                    iconUrl: './img/psv.png',
+                
+                    iconSize:     [25, 25], // size of the icon
+                    iconAnchor:   [5, 5], // point of the icon which will correspond to marker's location
+                    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+                });
+        
+                let latLong = doc.data().coords.split(",");
+                let estacionamiento = doc.data().ki;
+                let kilometraje = doc.data().coords;
+                let nombre = doc.data().name;
+                //console.log(latLong);
+                L.marker(latLong, {icon: psvIcon}).bindPopup("<b>"+"<h5>"+nombre+"</h5>" +"</b>" + "<br>" + kilometraje + "<br>" + estacionamiento).addTo(mymap);
+                L.circle(latLong, {radius: 300}).addTo(mymap);
+            });
+        });
+
         
 
 

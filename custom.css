@@ -30,3 +30,8 @@ table td {
     margin-left: 10px;
     border-radius: 5px;
 }
+
+.map-container{
+    border-radius: 5px;
+    border: solid 1px #ccc;
+}
