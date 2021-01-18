@@ -203,7 +203,7 @@ navigator.geolocation.getCurrentPosition(
                 let KIcon = L.icon({
                     iconUrl: './img/K.png',
                 
-                    iconSize:     [25, 25], // size of the icon
+                    iconSize:     [15, 15], // size of the icon
                     iconAnchor:   [5, 5], // point of the icon which will correspond to marker's location
                     popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
                 });
