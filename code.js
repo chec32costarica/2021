@@ -34,6 +34,7 @@ db.collection("expropiaciones").orderBy("KI", "asc").get().then((querySnapshot) 
                 <p class="card-text">${doc.data().ofi}</p>
             </a>
             <p class="card-text">${doc.data().KI} - ${doc.data().KF}</p>
+            <p class="card-text"><span>Coord1: </span>${doc.data().coord1}<br><span>Coord2: </span>${doc.data().coord2}</p>
         </div>
         </div>
 
@@ -69,6 +70,36 @@ db.collection("oficios").orderBy("oficio", "asc").get().then((querySnapshot) => 
         `
     });
 });
+
+//leer estadisticas
+
+var estadisticas = document.getElementById("cacisa-identificadas")
+
+
+db.collection("psv-exp").orderBy("oficio", "asc").get().then((querySnapshot) => {
+    estadisticas.innerHTML ='';
+    querySnapshot.forEach((doc) => {
+        //console.log(`${doc.id} => ${doc.data()}`);
+        estadisticas.innerHTML += `
+        
+        <div class="card mb-3">
+        <div class="card-header bg-success fw-bolder text-white">
+            ${doc.data().tramo1[0]}
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">${doc.data().expedientes}</h5>
+            <a href="${doc.data().url}">
+                <p class="card-text">Ver Oficio en PDF</p>
+            </a>
+        </div>
+        </div>
+
+
+        `
+    });
+});
+
+
 
 //leer datos puentes
 
@@ -290,7 +321,7 @@ navigator.geolocation.getCurrentPosition(
             });
         });
 
-        
+      
 
 
 
@@ -319,3 +350,30 @@ navigator.geolocation.getCurrentPosition(
 
 
 
+const url = "https://script.google.com/macros/s/AKfycbz-2u_G2SmSJNkLzmCs-l4Dn-nVnJiTLtYpKkqiYvdHftyO3yPaA4D4/exec";
+
+fetch(url)
+    .then(d => d.json())
+    .then(d => {
+        d.forEach(e => {
+            document.getElementById('app').innerHTML += `
+
+            <div class="card mb-3">
+        <div class="card-header bg-success fw-bolder text-white">
+         ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">${e[1]}</h5>
+            <a href="#">
+                <p class="card-text"></p>
+            </a>
+            <p class="card-text">${e[8]} - ${e[9]}</p>
+            <p class="card-text"><span>Coord1: </span><br><span>Coord2: </span></p>
+        </div>
+        </div>
+            
+            ` 
+        });
+        
+
+    });
