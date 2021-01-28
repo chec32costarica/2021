@@ -356,22 +356,185 @@ fetch(url)
     .then(d => d.json())
     .then(d => {
         d.forEach(e => {
+            
             document.getElementById('app').innerHTML += `
 
             <div class="card mb-3">
-        <div class="card-header bg-success fw-bolder text-white">
-         ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
-        </div>
-        <div class="card-body text-center">
-            <h5 class="card-title">${e[1]}</h5>
-            <a href="#">
-                <p class="card-text"></p>
-            </a>
-            <p class="card-text">${e[11]}</p>
-        </div>
-        </div>
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
             
             ` 
+            
+
+            if (e[11] == "UE-DRA-RN32-002-2020-1565") {
+
+                document.getElementById('UE-DRA-RN32-002-2020-1565').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
+            if (e[11] == "UE-DRA-RN32-002-2020-1174") {
+
+                document.getElementById('UE-DRA-RN32-002-2020-1174').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
+            if (e[11] == "UE-DRA-RN32-010-2020-1702(885)") {
+
+                document.getElementById('UE-DRA-RN32-010-2020-1702(885)').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
+            if (e[11] == "UE-DRA-RN32-002-2019-1300") {
+
+                document.getElementById('UE-DRA-RN32-002-2019-1300').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
+            if (e[11] == "UE-DRA-RN32-002-2020-0476") {
+
+                document.getElementById('UE-DRA-RN32-002-2020-0476').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
+            if (e[11] == "UE-DRA-RN32-002-2019-2139") {
+
+                document.getElementById('UE-DRA-RN32-002-2019-2139').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
+            if (e[11] == "UE-DRA-RN32-002-2020-0784") {
+
+                document.getElementById('UE-DRA-RN32-002-2020-0784').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
+            if (e[11] == "UE-DRA-RN32-002-2019-937") {
+
+                document.getElementById('UE-DRA-RN32-002-2019-937').innerHTML += `
+            
+            <div class="card mb-3">
+                <div class="card-header bg-success fw-bolder text-white">
+                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${e[1]}</h5>
+                        <a href="#">
+                            <p class="card-text"></p>
+                        </a>
+                    <p class="card-text">${e[11]}</p>
+                </div>
+            </div>
+            
+            `  
+            }
+
         });
         
 
