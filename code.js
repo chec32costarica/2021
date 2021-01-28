@@ -367,8 +367,7 @@ fetch(url)
             <a href="#">
                 <p class="card-text"></p>
             </a>
-            <p class="card-text">${e[8]} - ${e[9]}</p>
-            <p class="card-text"><span>Coord1: </span><br><span>Coord2: </span></p>
+            <p class="card-text">${e[11]}</p>
         </div>
         </div>
             
