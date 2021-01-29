@@ -43,6 +43,7 @@
                   <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#estadisticas">Estadisticas Expropiaciones</a></li>
                   <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#cacisa">Identificadas Cacisa</a></li>
                   <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#oficios">Oficios</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#searchModal">Busqueda</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li class="nav-item">
                     <a class="ms-3 dropdown-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Registrar</a>
@@ -68,6 +69,8 @@
           </div>
         </div>
     </nav>
+
+
     <div class="container col-md-4 p-3">
       <div class="row">
         <div class="col">
@@ -280,7 +283,39 @@
               <div>
                   <p>Propiedades Identificadas por CACISA</p>
               </div>
+              <div>
+                <div class="input-group mb-3">
+                  <input type="text" id="searchBar" class="form-control" placeholder="Busqueda" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <span class="input-group-text" id="basic-addon2">Buscar</span>
+                </div>
+              </div>
               <div id="app">
+
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Modal Busqueda-->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Terrenos Identificados por CACISA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div>
+                  <p>Propiedades Identificadas por CACISA</p>
+              </div>
+              <div>
+                <div class="input-group mb-3">
+                  <input type="text" id="searchBar" class="form-control" placeholder="Busqueda" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <span class="input-group-text" id="basic-addon2">Buscar</span>
+                </div>
+              </div>
+              <div id="appSeach">
 
               </div>
           </div>

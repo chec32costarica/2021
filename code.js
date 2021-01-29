@@ -43,61 +43,7 @@ db.collection("expropiaciones").orderBy("KI", "asc").get().then((querySnapshot) 
     });
 });
 
-//leer estadisticas
 
-var estadisticas = document.getElementById("estadisticas-expropiaciones")
-
-
-db.collection("oficios").orderBy("oficio", "asc").get().then((querySnapshot) => {
-    estadisticas.innerHTML ='';
-    querySnapshot.forEach((doc) => {
-        //console.log(`${doc.id} => ${doc.data()}`);
-        estadisticas.innerHTML += `
-        
-        <div class="card mb-3">
-        <div class="card-header bg-success fw-bolder text-white">
-            ${doc.data().oficio}
-        </div>
-        <div class="card-body text-center">
-            <h5 class="card-title">${doc.data().expedientes}</h5>
-            <a href="${doc.data().url}">
-                <p class="card-text">Ver Oficio en PDF</p>
-            </a>
-        </div>
-        </div>
-
-
-        `
-    });
-});
-
-//leer estadisticas
-
-var estadisticas = document.getElementById("cacisa-identificadas")
-
-
-db.collection("psv-exp").orderBy("oficio", "asc").get().then((querySnapshot) => {
-    estadisticas.innerHTML ='';
-    querySnapshot.forEach((doc) => {
-        //console.log(`${doc.id} => ${doc.data()}`);
-        estadisticas.innerHTML += `
-        
-        <div class="card mb-3">
-        <div class="card-header bg-success fw-bolder text-white">
-            ${doc.data().tramo1[0]}
-        </div>
-        <div class="card-body text-center">
-            <h5 class="card-title">${doc.data().expedientes}</h5>
-            <a href="${doc.data().url}">
-                <p class="card-text">Ver Oficio en PDF</p>
-            </a>
-        </div>
-        </div>
-
-
-        `
-    });
-});
 
 
 
@@ -112,7 +58,7 @@ db.collection("Puentes").orderBy("ki", "asc").get().then((querySnapshot) => {
         //console.log(`${doc.id} => ${doc.data()}`);
 
         let latLong = doc.data().coords.split(",");
-        console.log(latLong);
+        //console.log(latLong);
 
         bridges.innerHTML += `
         
@@ -138,7 +84,7 @@ var retorno = document.getElementById("retornos-list")
 db.collection("retornos").orderBy("ki", "asc").get().then((querySnapshot) => {
     retorno.innerHTML ='';
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+        //console.log(`${doc.id} => ${doc.data()}`);
         retorno.innerHTML += `
         
         <div class="card mb-3">
@@ -163,7 +109,7 @@ var psv = document.getElementById("psv-list")
 db.collection("psv").orderBy("ki", "asc").get().then((querySnapshot) => {
     psv.innerHTML ='';
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+        //console.log(`${doc.id} => ${doc.data()}`);
         psv.innerHTML += `
         
         <div class="card mb-3">
@@ -187,7 +133,7 @@ var peatonal = document.getElementById("PuentesPeatonales-list")
 db.collection("peatonal").orderBy("ki", "asc").get().then((querySnapshot) => {
     peatonal.innerHTML ='';
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+        //console.log(`${doc.id} => ${doc.data()}`);
         peatonal.innerHTML += `
         
         <div class="card mb-3">
@@ -356,19 +302,20 @@ fetch(url)
     .then(d => d.json())
     .then(d => {
         d.forEach(e => {
-            
+
             document.getElementById('app').innerHTML += `
 
             <div class="card mb-3">
-                <div class="card-header bg-success fw-bolder text-white">
-                ${e[0]}) ${e[8]} - ${e[9]} (${e[10]})
+                <div class="card-header bg-info fw-bolder text-white">
+                    <span class="bullet-number">${e[0]}</span> ${e[8]} - ${e[9]} <span class="bullet-side">${e[5]}</span><span class="bullet-status">${e[10]}</span>
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">${e[1]}</h5>
                         <a href="#">
-                            <p class="card-text"></p>
+                            <p class="card-text">${e[6]}</p>
                         </a>
                     <p class="card-text">${e[11]}</p>
+                    <p class="card-text badge bg-primary text-wrap">${e[12]}</p>
                 </div>
             </div>
             
@@ -539,3 +486,10 @@ fetch(url)
         
 
     });
+
+
+
+
+   
+
+   

@@ -35,3 +35,24 @@ table td {
     border-radius: 5px;
     border: solid 1px #ccc;
 }
+
+.bullet-number{
+  background-color: rgb(4, 63, 30);
+  padding: 4px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.bullet-side{
+    background-color: rgb(42, 34, 151);
+    padding: 4px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.bullet-status{
+    background-color: rgb(75, 70, 148);
+    padding: 4px;
+    border-radius: 3px;
+    margin-right: 5px;
+    float: right;
+}
